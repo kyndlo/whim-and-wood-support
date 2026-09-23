@@ -4,42 +4,52 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Get Wooden Wonders for iPhone, iPad or Android. Scan the QR code or choose your app store.">
-  <meta name="theme-color" content="#f7f2e7">
+  <meta name="theme-color" content="#f4eddd">
   <meta property="og:title" content="Get Wooden Wonders">
   <meta property="og:description" content="Scan to download Wooden Wonders for iPhone, iPad or Android.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kyndlo.github.io/whim-and-wood-support/download/">
   <title>Get Wooden Wonders</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="download.css">
 </head>
-<body>
-  <header>
+<body class="download-body">
+  <header class="download-header">
     <a href="../">Wooden Wonders</a>
     <nav aria-label="Main navigation">
       <a href="../">Support</a>
       <a href="../privacy.html">Privacy</a>
     </nav>
   </header>
-  <main>
-    <p class="eyebrow">A little wonder, wherever you play</p>
-    <h1>Get Wooden Wonders</h1>
-    <p class="intro">Beautiful 3D wooden animal jigsaw puzzles, made for a quiet moment on your phone or tablet.</p>
-    <p id="redirect-status" class="redirect-status" role="status" aria-live="polite">Choose your device’s store below.</p>
+  <main class="download-page">
     <div class="download-grid">
-      <section aria-label="Choose your app store">
+      <section class="download-copy" aria-labelledby="download-title">
+        <p class="eyebrow">A little wonder, wherever you play</p>
+        <h1 id="download-title">Get Wooden Wonders</h1>
+        <p class="intro">Beautiful 3D wooden animal jigsaw puzzles, made for a quiet moment on your phone or tablet.</p>
+        <p id="redirect-status" class="redirect-status" role="status" aria-live="polite">Choose your device’s store below.</p>
         <div class="store-links">
-          <a class="contact" href="https://apps.apple.com/us/app/whim-wood/id6809650487">Download on the App Store ↗</a>
-          <a class="contact" href="https://play.google.com/store/apps/details?id=com.whimandwood.puzzle.android">Get it on Google Play ↗</a>
+          <a class="store-button" href="https://apps.apple.com/us/app/whim-wood/id6809650487">
+            <span>Download on the App Store</span>
+            <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M5 15 15 5M6 5h9v9" /></svg>
+          </a>
+          <a class="store-button" href="https://play.google.com/store/apps/details?id=com.whimandwood.puzzle.android">
+            <span>Get it on Google Play</span>
+            <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M5 15 15 5M6 5h9v9" /></svg>
+          </a>
         </div>
-        <p class="note">On a phone or tablet, this page will open the right store automatically. If it doesn’t, use the matching button above.</p>
+        <p class="note redirect-note">On a phone or tablet, this page will open the right store automatically. If it doesn’t, use the matching button above.</p>
+        <figure class="qr-card">
+          <img src="wooden-wonders-qr.png" width="1254" height="1254" alt="Wooden Wonders branded QR code linking to this download page">
+          <figcaption>Scan to get the app</figcaption>
+        </figure>
       </section>
-      <aside class="qr-card">
-        <img src="wooden-wonders-qr.png" width="510" height="510" alt="QR code for the Wooden Wonders download page">
-        <p>Scan to get the app</p>
-      </aside>
+      <figure class="game-frame">
+        <img src="wooden-wonders-home.jpg" width="2868" height="1320" alt="Wooden Wonders home screen on a phone, showing the lion, elephant, and zebra puzzles">
+      </figure>
     </div>
   </main>
-  <footer>
+  <footer class="download-footer">
     <span>© 2026 Kyndlo LLC</span>
     <a href="mailto:carlos@kyndlo.com">carlos@kyndlo.com</a>
   </footer>
