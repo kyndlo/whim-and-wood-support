@@ -1,38 +1,81 @@
 :root {
-  --download-paper: #f4eddd;
+  --download-paper: #f8f8ef;
   --download-ink: #173a35;
-  --download-muted: #5a6d65;
+  --download-muted: #66746d;
   --download-amber: #a96023;
   --download-rule: rgb(23 58 53 / 15%);
 }
 
 .download-body {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  overflow-x: clip;
   background: var(--download-paper);
   color: var(--download-ink);
+}
+
+.download-body::before,
+.download-body::after {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+}
+
+.download-body::before {
+  top: 0;
+  left: 0;
+  width: 124px;
+  height: 83px;
+  background-image: url("wooden-corner.png");
+}
+
+.download-body::after {
+  right: 0;
+  bottom: 0;
+  width: 480px;
+  height: 320px;
+  background-image: url("foliage-corner.png");
 }
 
 .download-header,
 .download-page,
 .download-footer {
-  width: min(100% - 64px, 1320px);
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 128px), 1320px);
   max-width: 1320px;
   padding-inline: 0;
 }
 
 .download-header {
-  min-height: 88px;
-  padding-block: 18px;
+  min-height: 84px;
+  padding-block: 17px;
   border-color: var(--download-rule);
 }
 
-.download-header > a {
+.download-header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
   color: var(--download-ink);
-  font-size: 28px;
-  letter-spacing: -0.045em;
+  font-size: 31px;
+  letter-spacing: -0.05em;
+}
+
+.brand-mark {
+  display: block;
+  width: 39px;
+  height: 47px;
+  flex: 0 0 auto;
 }
 
 .download-header nav {
-  gap: clamp(18px, 3vw, 36px);
+  gap: clamp(24px, 3vw, 42px);
   color: var(--download-ink);
   font-size: 15px;
   font-weight: 550;
@@ -48,17 +91,19 @@
 }
 
 .download-page {
-  display: grid;
-  align-items: start;
-  min-height: max(690px, calc(100svh - 176px));
-  padding-block: clamp(48px, 7vh, 92px);
+  display: flex;
+  min-height: 0;
+  flex: 1 0 auto;
+  align-items: flex-start;
+  padding-block: 59px 46px;
 }
 
 .download-grid {
   display: grid;
-  grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.1fr);
+  width: 100%;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
   align-items: start;
-  gap: clamp(42px, 7vw, 104px);
+  gap: clamp(54px, 4.5vw, 72px);
   margin: 0;
 }
 
@@ -67,35 +112,35 @@
 }
 
 .download-copy .eyebrow {
-  margin: 0 0 22px;
+  margin: 0 0 18px;
   color: var(--download-ink);
   font-size: 13px;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.27em;
   line-height: 1.5;
 }
 
 .download-copy h1 {
-  max-width: 620px;
-  margin: 0 0 24px;
+  max-width: 500px;
+  margin: 0 0 34px;
   color: var(--download-ink);
-  font-size: clamp(52px, 4vw, 62px);
+  font-size: clamp(62px, 5.1vw, 74px);
   font-weight: 400;
   letter-spacing: -0.055em;
-  line-height: 0.99;
+  line-height: 1.02;
   text-wrap: balance;
 }
 
 .download-copy .intro {
-  max-width: 520px;
+  max-width: 500px;
   margin: 0;
   color: #233f3a;
-  font-size: clamp(17px, 1.55vw, 20px);
+  font-size: clamp(17px, 1.35vw, 19px);
   line-height: 1.55;
 }
 
 .redirect-status {
   min-height: 1.6em;
-  margin: 24px 0 0;
+  margin: 28px 0 0;
   color: var(--download-muted);
   font-size: 16px;
 }
@@ -104,37 +149,31 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin: 22px 0 0;
+  margin: 19px 0 0;
 }
 
 .store-button {
   display: inline-flex;
-  min-height: 54px;
+  min-height: 70px;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 14px 18px 14px 20px;
+  justify-content: flex-start;
+  gap: 15px;
+  padding: 11px 19px;
   border: 1px solid rgb(255 255 255 / 12%);
-  border-radius: 12px;
+  border-radius: 13px;
   background: var(--download-ink);
-  box-shadow: 0 8px 18px rgb(23 58 53 / 13%);
+  box-shadow: 0 9px 18px rgb(23 58 53 / 13%);
   color: #fffdf7;
-  font-size: 15px;
-  font-weight: 650;
-  line-height: 1.25;
   text-decoration: none;
   transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
-.store-button svg {
-  width: 19px;
-  height: 19px;
-  flex: 0 0 auto;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
+.apple-button {
+  width: 276px;
+}
+
+.play-button {
+  width: 185px;
 }
 
 .store-button:hover {
@@ -142,6 +181,43 @@
   background: #24534a;
   box-shadow: 0 12px 23px rgb(23 58 53 / 18%);
   color: #fffdf7;
+}
+
+.store-mark {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.apple-mark {
+  width: 29px;
+  height: 39px;
+  fill: #fffdf7;
+}
+
+.play-mark {
+  width: 39px;
+  height: 39px;
+}
+
+.store-label {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.store-kicker {
+  font-size: 13px;
+  font-weight: 450;
+  line-height: 1.1;
+}
+
+.store-name {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
 }
 
 .store-button:focus-visible,
@@ -153,7 +229,7 @@
 
 .redirect-note {
   max-width: 500px;
-  margin: 20px 0 0;
+  margin: 19px 0 0;
   color: var(--download-muted);
   font-size: 14px;
   line-height: 1.55;
@@ -164,17 +240,17 @@
   width: fit-content;
   justify-items: center;
   gap: 12px;
-  margin: 28px 0 0;
-  padding: 13px 13px 15px;
+  margin: 29px 0 0;
+  padding: 12px 12px 14px;
   border: 1px solid rgb(23 58 53 / 12%);
   border-radius: 16px;
-  background: #fffdf8;
+  background: #fffefa;
   box-shadow: 0 12px 32px rgb(61 46 25 / 8%);
 }
 
 .qr-card img {
   display: block;
-  width: clamp(150px, 12vw, 176px);
+  width: 236px;
   height: auto;
   border-radius: 8px;
 }
@@ -187,26 +263,48 @@
 }
 
 .game-frame {
-  overflow: hidden;
+  position: relative;
   width: 100%;
-  margin: 24px 0 0;
-  padding: 11px;
-  border: 1px solid rgb(255 255 255 / 20%);
-  border-radius: 28px;
-  background: #17332f;
-  box-shadow: 0 24px 62px rgb(51 39 20 / 20%), 0 4px 12px rgb(23 58 53 / 10%);
+  margin: 0;
+  padding: 17px;
+  border: 3px solid #686964;
+  border-radius: 29px;
+  background: linear-gradient(145deg, #242524, #090a09 70%);
+  box-shadow: 0 23px 50px rgb(38 37 31 / 24%), inset 0 1px 0 rgb(255 255 255 / 38%);
+}
+
+.game-frame::before,
+.game-frame::after {
+  position: absolute;
+  left: -7px;
+  width: 4px;
+  border: 1px solid #6c6c67;
+  border-radius: 3px 0 0 3px;
+  background: #343531;
+  content: "";
+}
+
+.game-frame::before {
+  top: 34%;
+  height: 42px;
+}
+
+.game-frame::after {
+  top: 44%;
+  height: 31px;
 }
 
 .game-frame img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 17px;
+  border-radius: 14px;
 }
 
 .download-footer {
-  margin-top: 0;
-  padding-block: 23px 29px;
+  min-height: 75px;
+  margin-top: auto;
+  padding-block: 22px 27px;
   border-color: var(--download-rule);
   color: var(--download-muted);
   font-size: 14px;
@@ -217,35 +315,79 @@
   text-decoration-thickness: 1px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .download-header,
   .download-page,
   .download-footer {
-    width: min(100% - 44px, 720px);
+    width: min(calc(100% - 80px), 880px);
+  }
+
+  .download-grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 38px;
+  }
+
+  .download-copy h1 {
+    font-size: clamp(52px, 6vw, 64px);
+  }
+
+  .store-links {
+    gap: 10px;
+  }
+
+  .apple-button {
+    width: 250px;
+  }
+
+  .play-button {
+    width: 185px;
+  }
+
+  .game-frame {
+    padding: 13px;
+  }
+
+  .qr-card img {
+    width: 210px;
+  }
+}
+
+@media (max-width: 760px) {
+  .download-header,
+  .download-page,
+  .download-footer {
+    width: min(calc(100% - 44px), 620px);
   }
 
   .download-page {
-    min-height: auto;
-    padding-block: 64px 56px;
+    padding-block: 46px 48px;
   }
 
   .download-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 46px;
+    gap: 38px;
   }
 
   .download-copy h1 {
-    max-width: 610px;
-    font-size: clamp(54px, 10vw, 76px);
+    max-width: 500px;
+    margin-bottom: 26px;
+    font-size: clamp(48px, 10vw, 66px);
   }
 
-  .qr-card img {
-    width: 200px;
+  .download-copy .intro,
+  .redirect-note {
+    max-width: 520px;
   }
 
   .game-frame {
-    max-width: 760px;
-    margin-top: 0;
+    width: min(100%, 620px);
+    justify-self: center;
+  }
+
+  .download-body::after {
+    width: 340px;
+    height: 227px;
+    opacity: 0.8;
   }
 }
 
@@ -253,17 +395,22 @@
   .download-header,
   .download-page,
   .download-footer {
-    width: min(100% - 36px, 460px);
+    width: min(calc(100% - 36px), 460px);
   }
 
   .download-header {
     min-height: 72px;
-    align-items: center;
-    padding-block: 16px;
+    padding-block: 14px;
   }
 
-  .download-header > a {
+  .download-header .brand {
+    gap: 7px;
     font-size: 22px;
+  }
+
+  .brand-mark {
+    width: 29px;
+    height: 36px;
   }
 
   .download-header nav {
@@ -272,22 +419,22 @@
   }
 
   .download-page {
-    padding-block: 50px 42px;
+    padding-block: 38px 42px;
   }
 
   .download-grid {
-    gap: 36px;
+    gap: 32px;
   }
 
   .download-copy .eyebrow {
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     font-size: 11px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.19em;
   }
 
   .download-copy h1 {
-    margin-bottom: 20px;
-    font-size: clamp(46px, 13vw, 60px);
+    margin-bottom: 22px;
+    font-size: clamp(43px, 12vw, 56px);
   }
 
   .download-copy .intro {
@@ -303,13 +450,19 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 10px;
-    margin-top: 18px;
+    margin-top: 16px;
   }
 
-  .store-button {
-    min-height: 52px;
+  .store-button,
+  .apple-button,
+  .play-button {
+    width: 100%;
+    min-height: 62px;
     padding-inline: 17px;
-    font-size: 14px;
+  }
+
+  .store-name {
+    font-size: 19px;
   }
 
   .redirect-note {
@@ -322,21 +475,48 @@
   }
 
   .qr-card img {
-    width: 176px;
+    width: min(210px, 60vw);
   }
 
   .game-frame {
-    padding: 7px;
-    border-radius: 20px;
+    padding: 8px;
+    border-radius: 22px;
   }
 
   .game-frame img {
-    border-radius: 12px;
+    border-radius: 13px;
+  }
+
+  .download-body::before {
+    width: 88px;
+    height: 59px;
+  }
+
+  .download-body::after {
+    width: 240px;
+    height: 160px;
   }
 
   .download-footer {
-    margin-top: 0;
-    padding-block: 20px 25px;
+    min-height: 0;
+    padding-block: 20px 24px;
+  }
+}
+
+@media (max-width: 375px) {
+  .download-header .brand {
+    gap: 4px;
+    font-size: 18px;
+  }
+
+  .brand-mark {
+    width: 25px;
+    height: 32px;
+  }
+
+  .download-header nav {
+    gap: 9px;
+    font-size: 12px;
   }
 }
 
