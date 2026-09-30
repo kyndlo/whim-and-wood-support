@@ -5,7 +5,7 @@ import Foundation
 import Vision
 
 let destination = URL(fileURLWithPath: CommandLine.arguments[1])
-let pageURL = "https://kyndlo.github.io/whim-and-wood-support/download/"
+let pageURL = "https://kindlo.app/whim-and-wood-support/download/"
 let filter = CIFilter.qrCodeGenerator()
 filter.message = Data(pageURL.utf8)
 filter.correctionLevel = "H"
