@@ -12,6 +12,7 @@
   <title>Get HiddenForm</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="download.css?v=3">
+  <script defer src="/scripts/hiddenform-analytics.js"></script>
 </head>
   <body class="download-body">
   <header class="download-header">
@@ -68,21 +69,6 @@
     <span>© 2026 Kyndlo LLC</span>
     <a href="mailto:carlos@kyndlo.com">carlos@kyndlo.com</a>
   </footer>
-  <script>
-    (() => {
-      const appleStore = "https://apps.apple.com/us/app/hiddenform/id6809650487";
-      const playStore = "https://play.google.com/store/apps/details?id=com.whimandwood.puzzle.android";
-      const userAgent = navigator.userAgent || "";
-      const platform = navigator.userAgentData?.platform || navigator.platform || "";
-      const isIOS = /iPhone|iPad|iPod/i.test(userAgent) || (/Mac/i.test(platform) && navigator.maxTouchPoints > 1);
-      const isAndroid = /Android/i.test(userAgent);
-      const target = isIOS ? appleStore : isAndroid ? playStore : null;
-      if (target) {
-        const storeName = isIOS ? "App Store" : "Google Play";
-        document.getElementById("redirect-status").textContent = `Opening ${storeName}…`;
-        window.location.replace(target);
-      }
-    })();
-  </script>
+
 </body>
 </html>
